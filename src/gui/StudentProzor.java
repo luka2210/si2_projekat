@@ -20,6 +20,7 @@ import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 public class StudentProzor {
 	
@@ -83,7 +84,7 @@ public class StudentProzor {
 		btnRezervacije.setFocusPainted(false);
 		btnRezervacije.setBorderPainted(false);
 		btnRezervacije.setBackground(new Color(36, 37, 42));
-		btnRezervacije.setBounds(405, 1, 168, 50);
+		btnRezervacije.setBounds(390, 1, 168, 50);
 		navbar.add(btnRezervacije);
 		
 		JLabel lblEbiblioteka = new JLabel("E-BIBLIOTEKA 🕮");
@@ -92,13 +93,20 @@ public class StudentProzor {
 		lblEbiblioteka.setBounds(12, 0, 265, 49);
 		navbar.add(lblEbiblioteka);
 		
-		JButton btnNalog = new JButton("Moj nalog");
+		JButton btnNalog = new JButton("Odjavite se");
+		btnNalog.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+				LoginProzor.main(null);
+			}
+		});
 		btnNalog.setForeground(Color.WHITE);
 		btnNalog.setFont(new Font("Dialog", Font.PLAIN, 25));
 		btnNalog.setFocusPainted(false);
 		btnNalog.setBorderPainted(false);
 		btnNalog.setBackground(new Color(36, 37, 42));
-		btnNalog.setBounds(738, 0, 150, 50);
+		btnNalog.setBounds(714, 0, 174, 50);
 		navbar.add(btnNalog);
 		
 		JLabel labelSlika = new JLabel("");
@@ -184,7 +192,11 @@ public class StudentProzor {
 		JButton btnPrikaziKnjigu = new JButton("Prikaži knjigu");
 		btnPrikaziKnjigu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				StudentKnjigaProzor.launch(student, (Knjiga) comboBox.getSelectedItem());
+				if (comboBox.getSelectedItem() == null) {
+						ErrorBox.show("Niste odabrali nijednu knjigu.", "null");
+						return;
+					}
+				KnjigaProzor.launch(student, (Knjiga) comboBox.getSelectedItem());
 			}
 		});
 		btnPrikaziKnjigu.setForeground(Color.WHITE);
@@ -197,4 +209,3 @@ public class StudentProzor {
 		
 	}
 }
-

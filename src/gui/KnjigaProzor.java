@@ -20,7 +20,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class StudentKnjigaProzor {
+public class KnjigaProzor {
 
 	private JFrame frame;
 	private Student student;
@@ -41,7 +41,7 @@ public class StudentKnjigaProzor {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					StudentKnjigaProzor window = new StudentKnjigaProzor(student, knjiga);
+					KnjigaProzor window = new KnjigaProzor(student, knjiga);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -53,7 +53,7 @@ public class StudentKnjigaProzor {
 	/**
 	 * Create the application.
 	 */
-	public StudentKnjigaProzor(Student student, Knjiga knjiga) {
+	public KnjigaProzor(Student student, Knjiga knjiga) {
 		this.student = student;
 		this.knjiga = knjiga;
 		initialize();
@@ -65,7 +65,7 @@ public class StudentKnjigaProzor {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.WHITE);
-		frame.setBounds(500, 300, 1030, 630);
+		frame.setBounds(500, 300, 1030, 635);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setResizable(false);
 		frame.getContentPane().setLayout(null);
@@ -82,32 +82,32 @@ public class StudentKnjigaProzor {
 		
 		lblNaziv = new JLabel("Naziv: ");
 		lblNaziv.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblNaziv.setBounds(456, 0, 275, 55);
+		lblNaziv.setBounds(456, 0, 354, 35);
 		frame.getContentPane().add(lblNaziv);
 		
 		lblGodinaIzdanja = new JLabel("Godina izdanja:");
 		lblGodinaIzdanja.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblGodinaIzdanja.setBounds(456, 90, 275, 55);
+		lblGodinaIzdanja.setBounds(456, 90, 275, 35);
 		frame.getContentPane().add(lblGodinaIzdanja);
 		
 		lblTip = new JLabel("Tip: ");
 		lblTip.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblTip.setBounds(456, 180, 275, 55);
+		lblTip.setBounds(456, 180, 275, 35);
 		frame.getContentPane().add(lblTip);
 		
 		lblIzdavac = new JLabel("Izdavač: ");
 		lblIzdavac.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblIzdavac.setBounds(456, 270, 275, 55);
+		lblIzdavac.setBounds(456, 270, 275, 35);
 		frame.getContentPane().add(lblIzdavac);
 		
 		lblIsbn = new JLabel("ISBN broj: ");
 		lblIsbn.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblIsbn.setBounds(456, 360, 275, 55);
+		lblIsbn.setBounds(456, 360, 275, 35);
 		frame.getContentPane().add(lblIsbn);
 		
 		lblBroj = new JLabel("Broj dostupnih primeraka: ");
 		lblBroj.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblBroj.setBounds(456, 450, 275, 55);
+		lblBroj.setBounds(456, 450, 275, 35);
 		frame.getContentPane().add(lblBroj);
 		
 		JButton btnRezervacija = new JButton("Rezerviši");
@@ -127,14 +127,14 @@ public class StudentKnjigaProzor {
 		
 		lblPisci = new JLabel("");
 		lblPisci.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblPisci.setBounds(749, 0, 275, 505);
+		lblPisci.setBounds(749, 0, 275, 480);
 		frame.getContentPane().add(lblPisci);
 		
 		ispisKnjige();
 	}
 	
 	private void ispisKnjige() {
-		Image img = new ImageIcon(StudentKnjigaProzor.class.getResource(knjiga.getSlikaPath())).getImage();
+		Image img = new ImageIcon(KnjigaProzor.class.getResource(knjiga.getSlikaPath())).getImage();
 		Image scaledImg = img.getScaledInstance(lblSlika.getWidth(), lblSlika.getHeight(), java.awt.Image.SCALE_SMOOTH);
 		lblSlika.setIcon(new ImageIcon(scaledImg));
 		
@@ -147,6 +147,7 @@ public class StudentKnjigaProzor {
 		
 		ArrayList<Pisac> pisci = knjiga.getPisci();
 		lblPisci.setText(getPisciText(pisci));
+		lblPisci.setBounds(770, 0, 275, pisci.size() * 35);
 	}
 	
 	private String getPisciText(ArrayList<Pisac> pisci) {
@@ -155,5 +156,4 @@ public class StudentKnjigaProzor {
 			text += pisac.toString() + " <br> ";
 		return "<html>" + text + "</html>";
 	}
-
 }
