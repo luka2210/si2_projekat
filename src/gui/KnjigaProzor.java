@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 import knjige.Knjiga;
-import korisnici.Student;
+import korisnici.Korisnik;
 import logic.Rezervacija;
 import pisci.Pisac;
 
@@ -23,7 +23,7 @@ import java.awt.event.ActionEvent;
 public class KnjigaProzor {
 
 	private JFrame frame;
-	private Student student;
+	private Korisnik korisnik;
 	private Knjiga knjiga;
 	
 	private JLabel lblSlika;
@@ -37,11 +37,11 @@ public class KnjigaProzor {
 	/**
 	 * Launch the application.
 	 */
-	public static void launch(Student student, Knjiga knjiga) {
+	public static void launch(Korisnik korisnik, Knjiga knjiga) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					KnjigaProzor window = new KnjigaProzor(student, knjiga);
+					KnjigaProzor window = new KnjigaProzor(korisnik, knjiga);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -53,8 +53,8 @@ public class KnjigaProzor {
 	/**
 	 * Create the application.
 	 */
-	public KnjigaProzor(Student student, Knjiga knjiga) {
-		this.student = student;
+	public KnjigaProzor(Korisnik korisnik, Knjiga knjiga) {
+		this.korisnik = korisnik;
 		this.knjiga = knjiga;
 		initialize();
 	}
@@ -113,7 +113,7 @@ public class KnjigaProzor {
 		JButton btnRezervacija = new JButton("Rezerviši");
 		btnRezervacija.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Rezervacija rezervacija = new Rezervacija(student, knjiga, frame);
+				Rezervacija rezervacija = new Rezervacija(korisnik, knjiga, frame);
 				rezervacija.execute();
 			}
 		});

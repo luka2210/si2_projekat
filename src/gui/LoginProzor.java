@@ -87,7 +87,7 @@ public class LoginProzor {
 		});
 		loginButton.setFont(new Font("Tahoma", Font.BOLD, 20));
 		loginButton.setForeground(new Color(255, 255, 255));
-		loginButton.setBackground(new Color(10, 169, 195));
+		loginButton.setBackground(new Color(0, 162, 237));
 		loginButton.setBounds(26, 179, 281, 40);
 		loginButton.setBorderPainted(false);
 		loginButton.setFocusPainted(false);

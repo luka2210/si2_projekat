@@ -14,15 +14,15 @@ import gui.ConfirmBox;
 import gui.ErrorBox;
 import knjige.Knjiga;
 import knjige.KnjigaBuilder;
-import korisnici.Student;
+import korisnici.Korisnik;
 
 public class Rezervacija implements Komanda{
-	Student student;
+	Korisnik korisnik;
 	Knjiga knjiga;
 	JFrame frame;
 	
-	public Rezervacija(Student student, Knjiga knjiga, JFrame frame) {
-		this.student = student;
+	public Rezervacija(Korisnik korisnik, Knjiga knjiga, JFrame frame) {
+		this.korisnik = korisnik;
 		this.knjiga = knjiga;
 		this.frame = frame;
 	}
@@ -31,6 +31,10 @@ public class Rezervacija implements Komanda{
 	public void execute() {
 		// TODO Auto-generated method stub
 		try {
+			if (!korisnik.isStudent()) {
+				ErrorBox.show("Samo studenti mogu da rezervišu knjige!", "korisnik nije student");
+				return;
+			}
 			if (vecRezervisana()) {
 				ErrorBox.show("Već ste rezervisali ovu knjigu.", "rezervisana");
 				return;
@@ -44,7 +48,7 @@ public class Rezervacija implements Komanda{
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
 			LocalDateTime now = LocalDateTime.now();
 			String query = "insert into rezervacije values(?, ?, ?, ?);";
-			String[] vars = {Integer.toString(student.getId()), Integer.toString(knjiga.getIsbn()), dtf.format(now), "0"};
+			String[] vars = {Integer.toString(korisnik.getId()), Integer.toString(knjiga.getIsbn()), dtf.format(now), "0"};
 			Communicator.executeUpdate(query, vars);
 			JOptionPane.showMessageDialog(null, "Knjiga uspešno rezervisana! ");
 			frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
@@ -57,7 +61,7 @@ public class Rezervacija implements Komanda{
 	
 	public boolean vecRezervisana() throws SQLException{
 		String query = "select * from rezervacije where id = ? and isbn = ? and istekla = ?";
-		String[] vars = {Integer.toString(student.getId()), Integer.toString(knjiga.getIsbn()), "0"};
+		String[] vars = {Integer.toString(korisnik.getId()), Integer.toString(knjiga.getIsbn()), "0"};
 		ResultSet rs = Communicator.executeQuery(query, vars);
 		return rs.next();
 	}

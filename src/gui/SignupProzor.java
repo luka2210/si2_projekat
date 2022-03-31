@@ -111,7 +111,7 @@ public class SignupProzor {
 		});
 		signupButton.setFont(new Font("Tahoma", Font.BOLD, 20));
 		signupButton.setForeground(new Color(255, 255, 255));
-		signupButton.setBackground(new Color(10, 169, 195));
+		signupButton.setBackground(new Color(0, 162, 237));
 		signupButton.setBounds(26, 330, 281, 40);
 		signupButton.setBorderPainted(false);
 		signupButton.setFocusPainted(false);

@@ -78,6 +78,11 @@ public class StudentProzor {
 		navbar.setLayout(null);
 		
 		JButton btnRezervacije = new JButton("Rezervacije");
+		btnRezervacije.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RezervacijeProzor.launch(student);
+			}
+		});
 		btnRezervacije.setForeground(Color.WHITE);
 		btnRezervacije.setFont(new Font("Dialog", Font.PLAIN, 25));
 		//btnOdjava.setBorder(new RoundBtn(30)); 
