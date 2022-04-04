@@ -28,7 +28,7 @@ public class Login implements Komanda{
 			if (rs.next()) {
 				if (rs.getString("tip").equals("student")) {
 					if (!rs.getBoolean("odobren")) {
-						ErrorBox.show("Vaš nalog još uvek nije odobren.", "neodobren nalog");
+						ErrorBox.show("Vaš nalog još uvek nije odobren od strane bibliotekara.", "neodobren nalog");
 						return;
 					}
 					Student student = new Student(rs);

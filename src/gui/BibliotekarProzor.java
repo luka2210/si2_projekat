@@ -6,7 +6,6 @@ import java.awt.Image;
 import javax.swing.JFrame;
 
 import korisnici.Bibliotekar;
-import korisnici.Student;
 import logic.Pretraga;
 
 import javax.swing.JLabel;
@@ -82,7 +81,7 @@ public class BibliotekarProzor {
 		JButton btnRezervacije = new JButton("Rezervacije");
 		btnRezervacije.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//RezervacijeProzor.launch(bibliotekar);
+				RezervacijeProzor.launch(bibliotekar);
 			}
 		});
 		btnRezervacije.setForeground(Color.WHITE);

@@ -77,7 +77,7 @@ public class StudentProzor {
 		frame.getContentPane().add(navbar);
 		navbar.setLayout(null);
 		
-		JButton btnRezervacije = new JButton("Rezervacije");
+		JButton btnRezervacije = new JButton("Moje rezervacije");
 		btnRezervacije.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				RezervacijeProzor.launch(student);
@@ -89,7 +89,7 @@ public class StudentProzor {
 		btnRezervacije.setFocusPainted(false);
 		btnRezervacije.setBorderPainted(false);
 		btnRezervacije.setBackground(new Color(36, 37, 42));
-		btnRezervacije.setBounds(390, 1, 168, 50);
+		btnRezervacije.setBounds(370, 1, 220, 50);
 		navbar.add(btnRezervacije);
 		
 		JLabel lblEbiblioteka = new JLabel("E-BIBLIOTEKA 🕮");

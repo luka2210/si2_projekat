@@ -1,10 +1,12 @@
 package gui;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 
 import javax.swing.JTable;
 import javax.swing.table.TableModel;
+
 
 public class TableRezervacije extends JTable{
 
@@ -19,5 +21,7 @@ public class TableRezervacije extends JTable{
 		getTableHeader().setOpaque(false);
 		getTableHeader().setBackground(new Color(0, 162, 237));
 		getTableHeader().setForeground(new Color(255, 255, 255));
+		this.setIntercellSpacing(new Dimension(0, 0));
+		this.setRowHeight(25);
 	}
 }

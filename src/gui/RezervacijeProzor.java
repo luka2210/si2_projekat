@@ -5,16 +5,16 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 
+import korisnici.Korisnik;
 import korisnici.Student;
 import javax.swing.JTable;
 
 import javax.swing.JLabel;
 import java.awt.Font;
-import logic.TableModelRezervacije;
 
 public class RezervacijeProzor {
 
-	private Student student;
+	private Korisnik korisnik;
 	private JFrame frame;
 	private TableRezervacije aktivneRezervacije;
 	private TableRezervacije istekleRezervacije;
@@ -22,11 +22,11 @@ public class RezervacijeProzor {
 	/**
 	 * Launch the application.
 	 */
-	public static void launch(Student student) {
+	public static void launch(Korisnik korisnik) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					RezervacijeProzor window = new RezervacijeProzor(student);
+					RezervacijeProzor window = new RezervacijeProzor(korisnik);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,8 +38,8 @@ public class RezervacijeProzor {
 	/**
 	 * Create the application.
 	 */
-	public RezervacijeProzor(Student student) {
-		this.student = student;
+	public RezervacijeProzor(Korisnik korisnik) {
+		this.korisnik = korisnik;
 		initialize();
 	}
 
@@ -58,9 +58,9 @@ public class RezervacijeProzor {
 		lblAktivneRezervacije.setBounds(0, 0, 163, 25);
 		frame.getContentPane().add(lblAktivneRezervacije);
 		
-		TableModelRezervacije model1 = new TableModelRezervacije(student, 0);
+		TableModelRezervacije model1 = new TableModelRezervacije(korisnik, 0);
 		aktivneRezervacije = new TableRezervacije(model1);
-		aktivneRezervacije.setBounds(0, lblAktivneRezervacije.getHeight(), frame.getWidth(), min(model1.getRowCount() * 16 + 25, 122));
+		aktivneRezervacije.setBounds(0, lblAktivneRezervacije.getHeight(), frame.getWidth(), min(model1.getRowCount() * aktivneRezervacije.getRowHeight() + 25, 300));
 		JScrollPane container1 = new JScrollPane(aktivneRezervacije);
 		container1.setBounds(aktivneRezervacije.getBounds());
 		frame.getContentPane().add(container1);
@@ -70,12 +70,14 @@ public class RezervacijeProzor {
 		lblIstekleRezervacije.setBounds(0, lblAktivneRezervacije.getHeight() + container1.getHeight(), 163, 25);
 		frame.getContentPane().add(lblIstekleRezervacije);
 		
-		TableModelRezervacije model2 = new TableModelRezervacije(student, 1);
+		TableModelRezervacije model2 = new TableModelRezervacije(korisnik, 1);
 		istekleRezervacije = new TableRezervacije(model2);
-		istekleRezervacije.setBounds(0, lblAktivneRezervacije.getHeight() + container1.getHeight() + lblAktivneRezervacije.getHeight(), frame.getWidth(), min(model2.getRowCount() * 16 + 25, 122));
+		istekleRezervacije.setBounds(0, lblAktivneRezervacije.getHeight() + container1.getHeight() + lblAktivneRezervacije.getHeight(), frame.getWidth(), min(model2.getRowCount() * aktivneRezervacije.getRowHeight() + 25, 300));
 		JScrollPane container2 = new JScrollPane(istekleRezervacije);
 		container2.setBounds(istekleRezervacije.getBounds());
 		frame.getContentPane().add(container2);
+		
+		frame.setBounds(100, 100, 600, container2.getY() + container2.getHeight() + 70);
 	}
 	
 	private int min(int i, int j) {

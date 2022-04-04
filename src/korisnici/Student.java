@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Student extends Korisnik{
-
+	
 	public Student(int id, String ime, String prezime, String username, String email, String password) {
 		super(id, ime, prezime, username, email, password);
 		// TODO Auto-generated constructor stub
