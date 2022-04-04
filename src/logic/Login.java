@@ -26,13 +26,17 @@ public class Login implements Komanda{
 			String[] vars = {username, password};
 			ResultSet rs = Communicator.executeQuery("select * from korisnici where username = ? and password = ?", vars);
 			if (rs.next()) {
-				if (rs.getBoolean("student")) {
+				if (rs.getString("tip").equals("student")) {
+					if (!rs.getBoolean("odobren")) {
+						ErrorBox.show("Vaš nalog još uvek nije odobren.", "neodobren nalog");
+						return;
+					}
 					Student student = new Student(rs);
 					StudentProzor.launch(student);
 				}
-				else {
+				else if (rs.getString("tip").equals("bibliotekar")){
 					Bibliotekar bibliotekar = new Bibliotekar(rs);
-					BibliotekarProzor.main(bibliotekar);
+					BibliotekarProzor.launch(bibliotekar);
 				}
 				loginFrame.dispatchEvent(new WindowEvent(loginFrame, WindowEvent.WINDOW_CLOSING));
 			}

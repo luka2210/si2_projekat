@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import db.Communicator;
 import gui.ErrorBox;
@@ -35,8 +36,9 @@ public class Signup implements Komanda{
 			String[] vars = {ime, prezime, username, password, email};
 			Communicator.executeUpdate("insert into korisnici(ime, prezime, username, password, email) values(?, ?, ?, ?, ?)", vars);
 			
-			Login login = new Login(username, password, signupFrame);
-			login.execute();
+			JOptionPane.showMessageDialog(null, "Uspešno ste se registrovali! ");
+			ToLoginProzor tlg = new ToLoginProzor(signupFrame);
+			tlg.execute();
 		} 
 		catch (SQLException e1) {
 			// TODO Auto-generated catch block
