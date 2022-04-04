@@ -4,11 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
-
 import korisnici.Korisnik;
-import korisnici.Student;
-import javax.swing.JTable;
-
 import javax.swing.JLabel;
 import java.awt.Font;
 
@@ -48,7 +44,7 @@ public class RezervacijeProzor {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 600, 330);
+		frame.setBounds(100, 100, 700, 330);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setResizable(false);
 		frame.getContentPane().setLayout(null);
@@ -77,7 +73,7 @@ public class RezervacijeProzor {
 		container2.setBounds(istekleRezervacije.getBounds());
 		frame.getContentPane().add(container2);
 		
-		frame.setBounds(100, 100, 600, container2.getY() + container2.getHeight() + 70);
+		frame.setBounds(100, 100, 700, container2.getY() + container2.getHeight() + 70);
 	}
 	
 	private int min(int i, int j) {

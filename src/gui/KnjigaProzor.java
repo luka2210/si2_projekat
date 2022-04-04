@@ -65,7 +65,7 @@ public class KnjigaProzor {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.WHITE);
-		frame.setBounds(500, 300, 1030, 635);
+		frame.setBounds(500, 300, 772, 635);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setResizable(false);
 		frame.getContentPane().setLayout(null);
@@ -82,32 +82,32 @@ public class KnjigaProzor {
 		
 		lblNaziv = new JLabel("Naziv: ");
 		lblNaziv.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblNaziv.setBounds(456, 0, 354, 35);
+		lblNaziv.setBounds(456, 326, 354, 35);
 		frame.getContentPane().add(lblNaziv);
 		
 		lblGodinaIzdanja = new JLabel("Godina izdanja:");
 		lblGodinaIzdanja.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblGodinaIzdanja.setBounds(456, 90, 275, 35);
+		lblGodinaIzdanja.setBounds(456, 359, 275, 35);
 		frame.getContentPane().add(lblGodinaIzdanja);
 		
 		lblTip = new JLabel("Tip: ");
 		lblTip.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblTip.setBounds(456, 180, 275, 35);
+		lblTip.setBounds(456, 394, 275, 35);
 		frame.getContentPane().add(lblTip);
 		
 		lblIzdavac = new JLabel("Izdavač: ");
 		lblIzdavac.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblIzdavac.setBounds(456, 270, 275, 35);
+		lblIzdavac.setBounds(456, 431, 275, 35);
 		frame.getContentPane().add(lblIzdavac);
 		
 		lblIsbn = new JLabel("ISBN broj: ");
 		lblIsbn.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblIsbn.setBounds(456, 360, 275, 35);
+		lblIsbn.setBounds(456, 466, 275, 35);
 		frame.getContentPane().add(lblIsbn);
 		
 		lblBroj = new JLabel("Broj dostupnih primeraka: ");
 		lblBroj.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblBroj.setBounds(456, 450, 275, 35);
+		lblBroj.setBounds(456, 499, 275, 35);
 		frame.getContentPane().add(lblBroj);
 		
 		JButton btnRezervacija = new JButton("Rezerviši");
@@ -127,7 +127,7 @@ public class KnjigaProzor {
 		
 		lblPisci = new JLabel("");
 		lblPisci.setFont(new Font("Dialog", Font.PLAIN, 18));
-		lblPisci.setBounds(749, 0, 275, 480);
+		lblPisci.setBounds(456, 0, 275, 480);
 		frame.getContentPane().add(lblPisci);
 		
 		ispisKnjige();
@@ -147,7 +147,7 @@ public class KnjigaProzor {
 		
 		ArrayList<Pisac> pisci = knjiga.getPisci();
 		lblPisci.setText(getPisciText(pisci));
-		lblPisci.setBounds(770, 0, 275, pisci.size() * 35);
+		lblPisci.setBounds(456, 0, 275, pisci.size() * 35);
 	}
 	
 	private String getPisciText(ArrayList<Pisac> pisci) {

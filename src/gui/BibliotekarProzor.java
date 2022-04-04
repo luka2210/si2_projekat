@@ -90,7 +90,7 @@ public class BibliotekarProzor {
 		btnRezervacije.setFocusPainted(false);
 		btnRezervacije.setBorderPainted(false);
 		btnRezervacije.setBackground(new Color(36, 37, 42));
-		btnRezervacije.setBounds(390, 1, 168, 50);
+		btnRezervacije.setBounds(473, 1, 168, 50);
 		navbar.add(btnRezervacije);
 		
 		JLabel lblEbiblioteka = new JLabel("E-BIBLIOTEKA 🕮");
@@ -114,6 +114,15 @@ public class BibliotekarProzor {
 		btnNalog.setBackground(new Color(36, 37, 42));
 		btnNalog.setBounds(714, 0, 174, 50);
 		navbar.add(btnNalog);
+		
+		JButton btnStudenti = new JButton("Studenti");
+		btnStudenti.setForeground(Color.WHITE);
+		btnStudenti.setFont(new Font("Dialog", Font.PLAIN, 25));
+		btnStudenti.setFocusPainted(false);
+		btnStudenti.setBorderPainted(false);
+		btnStudenti.setBackground(new Color(36, 37, 42));
+		btnStudenti.setBounds(330, 1, 134, 50);
+		navbar.add(btnStudenti);
 		
 		JLabel labelSlika = new JLabel("");
 		labelSlika.setBounds(0, navbar.getHeight(), (int)Math.round(frame.getWidth() / 2), frame.getHeight() - navbar.getHeight());
