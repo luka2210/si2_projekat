@@ -12,7 +12,7 @@ import db.Communicator;
 import gui.ErrorBox;
 
 public class Signup implements Komanda{
-	private String ime, prezime, username, password, email;
+	private String ime, prezime, username, password, email, tip = null;
 	private JFrame signupFrame;
 	
 	public Signup(String ime, String prezime, String username, String password, String email, JFrame signupFrame) {
@@ -22,6 +22,15 @@ public class Signup implements Komanda{
 		this.password = password;
 		this.email = email;
 		this.signupFrame = signupFrame;
+	}
+	
+	public Signup(String ime, String prezime, String username, String password, String email, String tip) {
+		this.ime = ime;
+		this.prezime = prezime;
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.tip = tip.toLowerCase();
 	}
 
 	public void execute() {
@@ -33,12 +42,19 @@ public class Signup implements Komanda{
 			if (!checkUniques())
 				return;
 			
-			String[] vars = {ime, prezime, username, password, email};
-			Communicator.executeUpdate("insert into korisnici(ime, prezime, username, password, email) values(?, ?, ?, ?, ?)", vars);
-			
-			JOptionPane.showMessageDialog(null, "Uspešno ste se registrovali! ");
-			ToLoginProzor tlg = new ToLoginProzor(signupFrame);
-			tlg.execute();
+			if (tip == null) {
+				String[] vars = {ime, prezime, username, password, email};
+				Communicator.executeUpdate("insert into korisnici(ime, prezime, username, password, email) values(?, ?, ?, ?, ?)", vars);
+				
+				JOptionPane.showMessageDialog(null, "Uspešno ste se registrovali! ");
+				ToLoginProzor tlg = new ToLoginProzor(signupFrame);
+				tlg.execute();
+			}
+			else {
+				String[] vars = {ime, prezime, username, password, email, tip};
+				Communicator.executeUpdate("insert into korisnici(ime, prezime, username, password, email, tip) values(?, ?, ?, ?, ?, ?)", vars);
+				JOptionPane.showMessageDialog(null, "Nalog uspešno dodat u bazu!");
+			}
 		} 
 		catch (SQLException e1) {
 			// TODO Auto-generated catch block

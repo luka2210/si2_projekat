@@ -22,7 +22,7 @@ public class StudentRezervacije {
 				throw new SQLException();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			ErrorBox.show("Došlo je do problema s radom baze podataka", "database error<");
+			ErrorBox.show("Došlo je do problema s radom baze podataka", "database error");
 			e.printStackTrace();
 		}
 	}

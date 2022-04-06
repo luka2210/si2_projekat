@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 import javax.swing.JFrame;
 import db.Communicator;
+import gui.AdminProzor;
 import gui.BibliotekarProzor;
 import gui.StudentProzor;
 import korisnici.*;
@@ -26,6 +27,11 @@ public class Login implements Komanda{
 			String[] vars = {username, password};
 			ResultSet rs = Communicator.executeQuery("select * from korisnici where username = ? and password = ?", vars);
 			if (rs.next()) {
+				if (rs.getBoolean("blokiran")) {
+					ErrorBox.show("Vaš nalog je blokiran, obratite se administratoru.", "blokiran nalog");
+					return;
+				}
+				
 				if (rs.getString("tip").equals("student")) {
 					if (!rs.getBoolean("odobren")) {
 						ErrorBox.show("Vaš nalog još uvek nije odobren od strane bibliotekara.", "neodobren nalog");
@@ -37,6 +43,10 @@ public class Login implements Komanda{
 				else if (rs.getString("tip").equals("bibliotekar")){
 					Bibliotekar bibliotekar = new Bibliotekar(rs);
 					BibliotekarProzor.launch(bibliotekar);
+				}
+				else if (rs.getString("tip").equals("admin")) {
+					Admin admin = new Admin(rs);
+					AdminProzor.launch(admin);
 				}
 				loginFrame.dispatchEvent(new WindowEvent(loginFrame, WindowEvent.WINDOW_CLOSING));
 			}

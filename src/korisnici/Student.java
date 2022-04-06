@@ -25,5 +25,11 @@ public class Student extends Korisnik{
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	@Override
+	public boolean isAdmin() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 }

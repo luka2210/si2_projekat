@@ -30,6 +30,7 @@ public abstract class Korisnik {
 	
 	public abstract boolean isStudent();
 	public abstract boolean isBibliotekar();
+	public abstract boolean isAdmin();
 
 	public int getId() { return id; }
 	public String getIme() { return ime; }

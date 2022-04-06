@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 07, 2022 at 12:06 AM
+-- Generation Time: Apr 07, 2022 at 01:41 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -87,25 +87,28 @@ CREATE TABLE `korisnici` (
   `email` varchar(60) NOT NULL,
   `password` varchar(30) NOT NULL,
   `tip` varchar(30) DEFAULT 'student',
-  `odobren` tinyint(4) DEFAULT 0
+  `odobren` tinyint(4) DEFAULT 0,
+  `blokiran` tinyint(4) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `korisnici`
 --
 
-INSERT INTO `korisnici` (`id`, `ime`, `prezime`, `username`, `email`, `password`, `tip`, `odobren`) VALUES
-(1, 'Darko', 'Simić', 'darkos', 'darkosimic@gmail.com', 'lozinka123', 'student', 1),
-(2, 'Marko', 'Perić', 'markop', 'markoperic@gmail.com', 'lozinka123', 'student', 1),
-(5, 'Marko', 'Petrović', 'markop1', 'markopetrovic@gmail.com', 'lozinka123', 'student', 1),
-(6, 'Lazar', 'Stević', 'lazars', 'lazars@gmail.com', 'lozinka123', 'student', 1),
-(7, 'Lazar', 'Savić', 'lazarsa', 'lazarsa@gmail.com', 'lozinka123', 'student', 1),
-(8, 'Milica', 'Vukobratović', 'milicaa', 'milicavukobratovic12345@gmail.com', 'lozinka123!', 'student', 1),
-(9, 'Јелена', 'Перић', 'jelenap', 'јеленап@gmail.com', 'лозинка123', 'student', 1),
-(10, 'Petar', 'Milić', 'petarm', 'petarm@hotmail.com', 'kozinka123', 'student', 1),
-(15, 'Mihailo', 'Prodanović', 'miki123', 'mikikg@gmail.com', 'lozinka123', 'student', 0),
-(16, 'Luka', 'Jović', 'lukal', 'lukajovic@gmail.com', 'lozinka123', 'bibliotekar', 1),
-(17, 'Valentina', 'Stojković', 'vacaa', 'vaca@gmail.com', 'lozinka123', 'student', 0);
+INSERT INTO `korisnici` (`id`, `ime`, `prezime`, `username`, `email`, `password`, `tip`, `odobren`, `blokiran`) VALUES
+(1, 'Darko', 'Simić', 'darkos', 'darkosimic@gmail.com', 'lozinka123', 'student', 1, 0),
+(2, 'Marko', 'Perić', 'markop', 'markoperic@gmail.com', 'lozinka123', 'student', 1, 0),
+(5, 'Marko', 'Petrović', 'markop1', 'markopetrovic@gmail.com', 'lozinka123', 'student', 1, 0),
+(6, 'Lazar', 'Stević', 'lazars', 'lazars@gmail.com', 'lozinka123', 'student', 1, 0),
+(7, 'Lazar', 'Savić', 'lazarsa', 'lazarsa@gmail.com', 'lozinka123', 'student', 1, 0),
+(8, 'Milica', 'Vukobratović', 'milicaa', 'milicavukobratovic12345@gmail.com', 'lozinka123!', 'student', 1, 0),
+(9, 'Јелена', 'Перић', 'jelenap', 'јеленап@gmail.com', 'лозинка123', 'student', 1, 0),
+(10, 'Petar', 'Milić', 'petarm', 'petarm@hotmail.com', 'kozinka123', 'student', 1, 0),
+(15, 'Mihailo', 'Prodanović', 'miki123', 'mikikg@gmail.com', 'lozinka123', 'student', 0, 0),
+(16, 'Luka', 'Jović', 'lukal', 'lukajovic@gmail.com', 'lozinka123', 'bibliotekar', 1, 0),
+(17, 'Valentina', 'Stojković', 'vacaa', 'vaca@gmail.com', 'lozinka123', 'student', 0, 0),
+(18, 'Stefan', 'Radenković', 'stefan1', 'stefan1@gmail.com', 'lozinka123', 'admin', 1, 0),
+(19, 'Stefan', 'Gagić', 'stefan2', 'stefan2@gmail.com', 'stefan12345', 'admin', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -235,7 +238,7 @@ ALTER TABLE `rezervacije`
 -- AUTO_INCREMENT for table `korisnici`
 --
 ALTER TABLE `korisnici`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `pisci`

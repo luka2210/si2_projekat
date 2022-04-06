@@ -21,13 +21,8 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableModel;
 
-import korisnici.Korisnik;
-import korisnici.Student;
-import logic.MojeRezervacije;
 import logic.OdobriNalog;
-import logic.OtkaziRezervaciju;
 import logic.StudentRezervacije;
-import logic.SveRezervacije;
 import logic.SviStudenti;
 
 public class StudentiProzor {
