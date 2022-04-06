@@ -8,7 +8,7 @@ import korisnici.Student;
 
 public class MojeRezervacije {
 	public static ResultSet execute(Student student, int istekla) throws SQLException {
-		String query = "select concat(s.ime, ' ', s.prezime) as ime_prezime, k.naziv as naziv, r.datum as datum from korisnici s ";
+		String query = "select r.id as id, k.isbn as isbn, concat(s.ime, ' ', s.prezime) as ime_prezime, k.naziv as naziv, r.datum as datum from korisnici s ";
 		query += "inner join rezervacije r on r.id = s.id ";
 		query += "inner join knjige k on k.isbn = r.isbn ";
 		query += "where s.id = ? and r.istekla = ?";
