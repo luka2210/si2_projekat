@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2022 at 02:10 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.28
+-- Generation Time: Apr 07, 2022 at 12:06 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -104,7 +104,8 @@ INSERT INTO `korisnici` (`id`, `ime`, `prezime`, `username`, `email`, `password`
 (9, 'Јелена', 'Перић', 'jelenap', 'јеленап@gmail.com', 'лозинка123', 'student', 1),
 (10, 'Petar', 'Milić', 'petarm', 'petarm@hotmail.com', 'kozinka123', 'student', 1),
 (15, 'Mihailo', 'Prodanović', 'miki123', 'mikikg@gmail.com', 'lozinka123', 'student', 0),
-(16, 'Luka', 'Jović', 'lukal', 'lukajovic@gmail.com', 'lozinka123', 'bibliotekar', 1);
+(16, 'Luka', 'Jović', 'lukal', 'lukajovic@gmail.com', 'lozinka123', 'bibliotekar', 1),
+(17, 'Valentina', 'Stojković', 'vacaa', 'vaca@gmail.com', 'lozinka123', 'student', 0);
 
 -- --------------------------------------------------------
 
@@ -171,11 +172,22 @@ INSERT INTO `rezervacije` (`id`, `isbn`, `datum`, `istekla`) VALUES
 (1, 978972501, '2022-03-26 17:42:21', 1),
 (1, 979145821, '2022-03-26 18:34:47', 1),
 (10, 168212437, '2022-03-26 20:56:44', 1),
-(1, 168212437, '2022-03-27 01:32:32', 0),
-(1, 978972501, '2022-03-27 01:33:23', 0),
-(1, 979145821, '2022-03-27 01:34:44', 0),
-(10, 168212437, '2022-04-04 10:09:07', 0),
-(2, 168212437, '2022-04-04 13:47:35', 0);
+(1, 168212437, '2022-03-27 01:32:32', 1),
+(1, 978972501, '2022-03-27 01:33:23', 1),
+(1, 979145821, '2022-03-27 01:34:44', 1),
+(10, 168212437, '2022-04-04 10:09:07', 1),
+(2, 168212437, '2022-04-04 13:47:35', 1),
+(1, 168212437, '2022-04-06 12:07:55', 1),
+(1, 978972501, '2022-04-06 12:44:48', 1),
+(1, 168212437, '2022-04-06 17:41:50', 1),
+(2, 168212437, '2022-04-06 17:42:38', 1),
+(1, 168212437, '2022-04-06 18:10:36', 1),
+(1, 978972501, '2022-04-06 18:10:41', 0),
+(1, 979145821, '2022-04-06 18:10:46', 0),
+(2, 168212437, '2022-04-06 18:11:02', 0),
+(2, 978972501, '2022-04-06 18:11:09', 0),
+(2, 979145821, '2022-04-06 18:11:13', 0),
+(1, 168212437, '2022-04-06 20:30:18', 1);
 
 --
 -- Indexes for dumped tables
@@ -223,7 +235,7 @@ ALTER TABLE `rezervacije`
 -- AUTO_INCREMENT for table `korisnici`
 --
 ALTER TABLE `korisnici`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `pisci`

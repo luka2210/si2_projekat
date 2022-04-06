@@ -34,7 +34,7 @@ public class RezervacijeProzor {
 	private TableRezervacije aktivneRezervacije;
 	private TableRezervacije istekleRezervacije;
 	
-	class TableModelRezervacije extends DefaultTableModel {
+	private class TableModelRezervacije extends DefaultTableModel {
 
 		/**
 		 * 
@@ -81,7 +81,7 @@ public class RezervacijeProzor {
 	    }
 	}
 	
-	class TableRezervacije extends JTable {
+	private class TableRezervacije extends JTable {
 		/**
 		 * 
 		 */
@@ -135,7 +135,6 @@ public class RezervacijeProzor {
 					// TODO Auto-generated method stub
 					String id = table.getModel().getValueAt(table.getSelectedRow(), 0).toString();
 					String isbn = table.getModel().getValueAt(table.getSelectedRow(), 2).toString();
-					System.out.println(id + " " + isbn);
 					OtkaziRezervaciju.execute(frame, korisnik, id, isbn);
 				} 
 			}

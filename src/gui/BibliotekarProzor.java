@@ -116,6 +116,11 @@ public class BibliotekarProzor {
 		navbar.add(btnNalog);
 		
 		JButton btnStudenti = new JButton("Studenti");
+		btnStudenti.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				StudentiProzor.launch();
+			}
+		});
 		btnStudenti.setForeground(Color.WHITE);
 		btnStudenti.setFont(new Font("Dialog", Font.PLAIN, 25));
 		btnStudenti.setFocusPainted(false);
