@@ -66,13 +66,13 @@ public class Signup implements Komanda{
 		String[] varsUsername = {username};
 		ResultSet rsUsername = Communicator.executeQuery("select * from korisnici where username = ?", varsUsername);
 		if (rsUsername.next()) {
-			ErrorBox.show("Korisničko ime je zauzeto, odaberite neko drugo.", "Greška: korisničko ime");
+			ErrorBox.show("Korisničko ime je zauzeto, odaberite neko drugo.", "korisničko ime");
 			return false;
 		}
 		String[] varsEmail = {email};
 		ResultSet rsEmail = Communicator.executeQuery("select * from korisnici where email = ?", varsEmail);
 		if (rsEmail.next()) {
-			ErrorBox.show("E-mail adresa koju ste uneli je već u upotrebi.", "Greška: e-mail");
+			ErrorBox.show("E-mail adresa koju ste uneli je već u upotrebi.", "e-mail");
 			return false;
 		}
 		return true;
@@ -80,23 +80,23 @@ public class Signup implements Komanda{
 	
 	private boolean checkLengths() {
 		if (ime.length() == 0 || ime.length() > 30) {
-			ErrorBox.show("Polje ime ne sme biti prazno i ne sme imati više od 30 karaktera!", "Greška: ime");
+			ErrorBox.show("Polje ime ne sme biti prazno i ne sme imati više od 30 karaktera!", "ime");
 			return false;
 		}
 		if (prezime.length() == 0 || prezime.length() > 30) {
-			ErrorBox.show("Polje prezime ne sme biti prazno i ne sme imati više od 30 karaktera!", "Greška: prezime");
+			ErrorBox.show("Polje prezime ne sme biti prazno i ne sme imati više od 30 karaktera!", "prezime");
 			return false;
 		}
 		if (username.length() < 5 || username.length() > 20) {
-			ErrorBox.show("Korisničko ime mora imati izmedju 5 i 20 karaktera!", "Greška: korisničko ime");
+			ErrorBox.show("Korisničko ime mora imati izmedju 5 i 20 karaktera!", "korisničko ime");
 			return false;
 		}
 		if (password.length() < 8 || password.length() > 30) {
-			ErrorBox.show("Lozinka mora imati izmedju 8 i 30 karaktera!", "Greška: lozinka");
+			ErrorBox.show("Lozinka mora imati izmedju 8 i 30 karaktera!", "lozinka");
 			return false;
 		}
 		if (email.length() == 0 || email.length() > 60) {
-			ErrorBox.show("Polje e-mail ne sme biti prazno i ne sme imati više od 60 karaktera!", "Greška: e-mail");
+			ErrorBox.show("Polje e-mail ne sme biti prazno i ne sme imati više od 60 karaktera!", "e-mail");
 			return false;
 		}
 		return true;
@@ -104,7 +104,7 @@ public class Signup implements Komanda{
 	
 	private boolean checkFormats() {
 		if (!username.matches("^[a-zA-Z0-9]*$")) {
-			ErrorBox.show("Korisničko ime sme da sadrži samo slova i brojeve!", "Greška: korisničko ime");
+			ErrorBox.show("Korisničko ime sme da sadrži samo slova i brojeve!", "korisničko ime");
 			return false;
 		}
 		try {
@@ -112,7 +112,7 @@ public class Signup implements Komanda{
 			emailAddr.validate();
 		} 
 		catch (AddressException ex) {
-			ErrorBox.show("E-mail nije u odgovarajućem formatu!", "Greška: e-mail");
+			ErrorBox.show("E-mail nije u odgovarajućem formatu!", "e-mail");
 			return false;
 		}
 		return true;

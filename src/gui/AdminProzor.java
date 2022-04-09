@@ -74,10 +74,10 @@ public class AdminProzor {
 		frame.getContentPane().add(navbar);
 		navbar.setLayout(null);
 		
-		JButton btnRezervacije = new JButton("Moje rezervacije");
+		JButton btnRezervacije = new JButton("Korisnici");
 		btnRezervacije.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//RezervacijeProzor.launch(student);
+				BlokiranjeProzor.launch();
 			}
 		});
 		btnRezervacije.setForeground(Color.WHITE);
