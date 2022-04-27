@@ -41,6 +41,7 @@ public class Master extends Knjiga {
 	public void setMentori(ArrayList<Mentor> mentori) { this.mentori = mentori; }
 	
 	public void setAutor(ResultSet autor) throws SQLException { 
+		autor.next();
 		this.autor = new Autor(autor);
 	}
 	

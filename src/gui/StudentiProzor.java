@@ -242,7 +242,7 @@ public class StudentiProzor {
 		
 		TableModelStudenti model1 = new TableModelStudenti(1);
 		sviStudenti = new TableStudenti(model1);
-		sviStudenti.setBounds(0, lblStudenti.getHeight(), frame.getWidth(), min(model1.getRowCount() * sviStudenti.getRowHeight() + 22, 300));
+		sviStudenti.setBounds(0, lblStudenti.getHeight(), frame.getWidth(), min(model1.getRowCount() * sviStudenti.getRowHeight() + 27, 300));
 		JScrollPane container1 = new JScrollPane(sviStudenti);
 		container1.setBounds(sviStudenti.getBounds());
 		frame.getContentPane().add(container1);
@@ -254,7 +254,7 @@ public class StudentiProzor {
 		
 		TableModelStudenti model2 = new TableModelStudenti(0);
 		neodobreniNalozi = new TableStudenti(model2);
-		neodobreniNalozi.setBounds(0, lblStudenti.getHeight() + container1.getHeight() + lblStudenti.getHeight(), frame.getWidth(), min(model2.getRowCount() * sviStudenti.getRowHeight() + 22, 300));
+		neodobreniNalozi.setBounds(0, lblStudenti.getHeight() + container1.getHeight() + lblStudenti.getHeight(), frame.getWidth(), min(model2.getRowCount() * sviStudenti.getRowHeight() + 27, 300));
 		JScrollPane container2 = new JScrollPane(neodobreniNalozi);
 		container2.setBounds(neodobreniNalozi.getBounds());
 		frame.getContentPane().add(container2);

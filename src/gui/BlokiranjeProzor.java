@@ -241,7 +241,7 @@ public class BlokiranjeProzor {
 		
 		TableModelKorisnici model1 = new TableModelKorisnici(0);
 		neblokiraniKorisnici = new TableKorisnici(model1);
-		neblokiraniKorisnici.setBounds(0, lblStudenti.getHeight(), frame.getWidth(), min(model1.getRowCount() * neblokiraniKorisnici.getRowHeight() + 22, 300));
+		neblokiraniKorisnici.setBounds(0, lblStudenti.getHeight(), frame.getWidth(), min(model1.getRowCount() * neblokiraniKorisnici.getRowHeight() + 27, 300));
 		JScrollPane container1 = new JScrollPane(neblokiraniKorisnici);
 		container1.setBounds(neblokiraniKorisnici.getBounds());
 		frame.getContentPane().add(container1);
@@ -253,7 +253,7 @@ public class BlokiranjeProzor {
 		
 		TableModelKorisnici model2 = new TableModelKorisnici(1);
 		blokiraniKorisnici = new TableKorisnici(model2);
-		blokiraniKorisnici.setBounds(0, lblStudenti.getHeight() + container1.getHeight() + lblStudenti.getHeight(), frame.getWidth(), min(model2.getRowCount() * blokiraniKorisnici.getRowHeight() + 22, 300));
+		blokiraniKorisnici.setBounds(0, lblStudenti.getHeight() + container1.getHeight() + lblStudenti.getHeight(), frame.getWidth(), min(model2.getRowCount() * blokiraniKorisnici.getRowHeight() + 27, 300));
 		JScrollPane container2 = new JScrollPane(blokiraniKorisnici);
 		container2.setBounds(blokiraniKorisnici.getBounds());
 		frame.getContentPane().add(container2);
