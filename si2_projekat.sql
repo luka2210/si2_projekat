@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2022 at 11:46 PM
+-- Generation Time: Apr 28, 2022 at 09:54 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.28
 
@@ -34,6 +34,7 @@ CREATE TABLE `knjige` (
   `isbn` int(30) NOT NULL,
   `broj` int(11) NOT NULL,
   `slika` varchar(100) NOT NULL,
+  `slika2` varchar(100) NOT NULL,
   `tip` enum('diplomski','doktorski','izdanje','knjiga','master','monografija','naucni','poglavlje','praktikum','udzbenik','zavrsni','zbirka') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -41,12 +42,12 @@ CREATE TABLE `knjige` (
 -- Dumping data for table `knjige`
 --
 
-INSERT INTO `knjige` (`naziv`, `godina`, `izdavac`, `isbn`, `broj`, `slika`, `tip`) VALUES
-('OET praktikum', 2016, 'Zavod za udžbenike', 168212437, 25, '/slike/oet_praktikum.jpg', 'praktikum'),
-('Neuronske mreze', 2016, '', 530145156, 1, '/slike/neuronske_mreze.png', 'zavrsni'),
-('Antropološka obeležja rukometaša', 2018, '', 828940409, 0, '/slike/antropoloska_obelezja_rukometasa.png', 'master'),
-('Zbirka zadataka iz matematike', 1999, 'Zavod za udžbenike', 978972501, 3, '/slike/zbirka_zadataka_iz_matematike.png', 'zbirka'),
-('Digitalni svet ', 2019, 'Klett', 979145821, 15, '/slike/digitalni_svet.png', 'udzbenik');
+INSERT INTO `knjige` (`naziv`, `godina`, `izdavac`, `isbn`, `broj`, `slika`, `slika2`, `tip`) VALUES
+('OET praktikum', 2016, 'Zavod za udžbenike', 168212437, 25, '/slike/oet_praktikum.jpg', '/slike/korice.jpg', 'praktikum'),
+('Neuronske mreze', 2016, '', 530145156, 1, '/slike/neuronske_mreze.png', '/slike/korice.jpg', 'zavrsni'),
+('Antropološka obeležja rukometaša', 2018, '', 828940409, 0, '/slike/antropoloska_obelezja_rukometasa.png', '/slike/korice.jpg', 'master'),
+('Zbirka zadataka iz matematike', 1999, 'Zavod za udžbenike', 978972501, 3, '/slike/zbirka_zadataka_iz_matematike.png', '/slike/korice.jpg', 'zbirka'),
+('Digitalni svet ', 2019, 'Klett', 979145821, 15, '/slike/digitalni_svet.png', '/slile/korice.jpg', 'udzbenik');
 
 -- --------------------------------------------------------
 
@@ -110,7 +111,7 @@ INSERT INTO `korisnici` (`id`, `ime`, `prezime`, `username`, `email`, `password`
 (10, 'Petar', 'Milić', 'petarm', 'petarm@hotmail.com', 'kozinka123', 'student', 1, 0),
 (15, 'Mihailo', 'Prodanović', 'miki123', 'mikikg@gmail.com', 'lozinka123', 'student', 0, 0),
 (16, 'Luka', 'Jović', 'lukal', 'lukajovic@gmail.com', 'lozinka123', 'bibliotekar', 1, 0),
-(17, 'Valentina', 'Stojković', 'vacaa', 'vaca@gmail.com', 'lozinka123', 'student', 0, 0),
+(17, 'Valentina', 'Stojković', 'vacaa', 'vaca@gmail.com', 'lozinka123', 'student', 1, 0),
 (18, 'Stefan', 'Radenković', 'stefan1', 'stefan1@gmail.com', 'lozinka123', 'admin', 1, 0),
 (19, 'Stefan', 'Gagić', 'stefan2', 'stefan2@gmail.com', 'stefan12345', 'admin', 0, 0);
 
@@ -195,11 +196,12 @@ INSERT INTO `rezervacije` (`id`, `isbn`, `datum`, `istekla`) VALUES
 (1, 168212437, '2022-04-06 18:10:36', 1),
 (1, 978972501, '2022-04-06 18:10:41', 0),
 (1, 979145821, '2022-04-06 18:10:46', 0),
-(2, 168212437, '2022-04-06 18:11:02', 0),
+(2, 168212437, '2022-04-06 18:11:02', 1),
 (2, 978972501, '2022-04-06 18:11:09', 0),
 (2, 979145821, '2022-04-06 18:11:13', 0),
 (1, 168212437, '2022-04-06 20:30:18', 1),
-(2, 530145156, '2022-04-27 23:34:36', 0);
+(2, 530145156, '2022-04-27 23:34:36', 0),
+(2, 168212437, '2022-04-28 09:26:39', 0);
 
 --
 -- Indexes for dumped tables
