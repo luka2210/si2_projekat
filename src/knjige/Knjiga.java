@@ -14,6 +14,7 @@ public abstract class Knjiga {
 	private int isbn;
 	private int broj;
 	private String slikaPath;
+	private String slikaPath2;
 	
 	public Knjiga(ResultSet knjiga) throws SQLException {
 		super();
@@ -22,7 +23,8 @@ public abstract class Knjiga {
 		this.izdavac = knjiga.getString("izdavac");
 		this.isbn = knjiga.getInt("isbn");
 		this.broj = knjiga.getInt("broj");
-		this.slikaPath = knjiga.getString("slika"); 
+		this.slikaPath = knjiga.getString("slika");
+		this.slikaPath2 = knjiga.getString("slika2");
 	}
 	
 	public abstract String getTip();
@@ -40,7 +42,10 @@ public abstract class Knjiga {
 	public void setIzdavac(String izdavac) { this.izdavac = izdavac; }
 	public void setIsbn(int isbn) { this.isbn = isbn; }
 	public void setBroj(int broj) { this.broj = broj; }
-	public void setSlikaPath(String slikaPath) { this.slikaPath = slikaPath; }
+	public void setSlikaPath(String slikaPath) { this.slikaPath = slikaPath; }	
+	public String getSlikaPath2() { return slikaPath2; }
+	public void setSlikaPath2(String slikaPath2) { this.slikaPath2 = slikaPath2; }
+
 	
 	public int brojPreostalihKnjiga() {
 		BrojRezervacijaKnjige brk = new BrojRezervacijaKnjige(this);
